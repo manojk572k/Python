@@ -89,7 +89,122 @@
 # best case use Deque
 
 # 8️⃣ Heap (Priority Queue)
+# A heap is:
+# A complete binary tree stored inside an array.
+#       1
+#      / \
+#     5  10
+# Smallest element always at root.
 # import heapq
 # heap = []
 # heapq.heappush(heap, 5)
+# heapq.heappush(heap, 1)
+# heapq.heappush(heap, 15)
 # heapq.heappop(heap)
+# print(heap[0])
+# print(heap)
+
+# Core_Exercises
+# 1️⃣ Reverse a String
+# userInput = "hello"
+# if len(userInput)>0:
+#     print(userInput[::-1])
+# else:
+#     print("")
+
+# 2️⃣ Check Palindrome
+# At first mismatch → it is NOT a palindrome.
+# Input= "racecars"
+# # Using two pointers
+# left=0
+# right=len(Input) -1
+# is_pal = True
+# if(len(Input)==0): print("True")
+# while(left<right):
+#      if(Input[left]!=Input[right]):
+#          is_pal = False
+#          break
+#      left+=1
+#      right-=1
+# print(is_pal)
+
+# 3️⃣ Two Sum
+# pointers technique
+# nums = [2,7,11,15]
+# l=0
+# r=len(nums)-1
+# sum=0
+# target = 18
+# while(l<r):
+#     sum=nums[l]+nums[r]
+#     if(target<sum):
+#         r-=1
+#     elif(target>sum):
+#         l+=1
+#     elif(target==sum):
+#         print(l,r)
+#         break
+
+# 4️⃣ Count Duplicates
+# frequency hashing
+# Input= [1,2,3,2,4,1,1]
+# freq={}
+# count=0
+# for i in Input:
+#     freq[i]=freq.get(i,0)+1
+# for i in freq.values():
+#     if i>1:
+#         count+=1
+# print(count)
+
+# 5️⃣ Rotate List
+# from collections import deque
+# nums = deque([1,2])
+# k = 3
+# nums.rotate(k)
+# print(nums)
+
+# 7️⃣ Merge Two Sorted Lists
+# Input1= [1,3,5]
+# Input2= [2,4,6]
+# i = j = 0
+# merged = []
+# while i < len(Input1) and j < len(Input2):
+#     if Input1[i] < Input2[j]:
+#         merged.append(Input1[i])
+#         i += 1
+#     else:
+#         merged.append(Input2[j])
+#         j += 1
+# merged.extend(Input1[i:])
+# merged.extend(Input2[j:])
+
+
+# 8️⃣ Remove Duplicates
+# Input= set([1,2,2,3,4,4])
+# print(Input)
+
+
+# 9️⃣ Find Missing Number
+# Input= [9,6,4,2,3,5,7,0,1]
+# n=len(Input)
+# expected=n*(n+1)//2
+# actual=sum([num for num in Input])
+# print(expected-actual)
+
+# 🔟 Anagram Check
+# Input1= "listen"
+# Input2= "silent"
+# freq1={}
+# for i in Input1:
+#     freq1[i]=freq1.get(i,0)+1
+# freq2={}
+# for i in Input2:
+#     freq2[i]=freq2.get(i,0)+1
+#
+# if(freq1==freq2):
+#     print("True")
+# else:
+#     print("False")
+# Order never matters in dictionary
+
