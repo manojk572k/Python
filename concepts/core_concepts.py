@@ -8,6 +8,7 @@
 # a.insert(0,10) 0(n)
 # a.pop(2) 0(n)
 # print(a)
+import copy
 
 # 2️⃣Tuple (Immutable Array)0(1)
 # a = (1, 2, 3)
@@ -181,8 +182,16 @@
 
 
 # 8️⃣ Remove Duplicates
-# Input= set([1,2,2,3,4,4])
-# print(Input)
+# Input= [1,2,2,3,4,4,5]
+# freq={}
+# list1=[]
+# for i in Input:
+#     freq[i]=freq.get(i,0)+1
+# for i,x in freq.items():
+#     if x>1:
+#         list1.append(i)
+# print(list1)
+
 
 
 # 9️⃣ Find Missing Number
@@ -207,4 +216,73 @@
 # else:
 #     print("False")
 # Order never matters in dictionary
+
+# Drill
+# import copy
+# a = [1, 2, 3]
+# b = a              # reference (same object)
+# c = a.copy()       # shallow copy (new list object)
+# d = copy.copy(a)   # shallow copy (same as a.copy for list)
+# print("a:", a, "id:", id(a))
+# print("b:", b, "id:", id(b))
+# print("c:", c, "id:", id(c))
+# print("d:", d, "id:", id(d))
+
+# unsorted two sum(hashmap)
+# nums = [2,7,11,15]
+# target = 9
+# def two_sum(nums, target):
+#   seen={}
+#   for i,num in enumerate(nums):
+#       diff=target-num
+#       if diff in seen:
+#           return (seen[diff],i)
+#       seen[num]=i
+# print(two_sum([2,7,11,15],9))
+# nums=[1,2,2,3,4,4,5]
+# def find_duplicates(nums):
+#     freq={}
+#     store=[]
+#     for i in nums:
+#         freq[i]=freq.get(i,0)+1
+#     for i,num in freq.items():
+#         if num > 1:
+#             store.append(i)
+#     return store
+# print(find_duplicates(nums))
+
+
+# def merge_sorted(a, b):
+#     i=j=0
+#     merge=[]
+#     while i < len(a) and j < len(b):
+#         if a[i]<b[j]:
+#             merge.append(a[i])
+#             i+=1
+#         else:
+#             merge.append(b[j])
+#             j+=1
+#     merge.extend(a[i:])
+#     merge.extend(b[j:])
+#     return merge
+# a=[2,4,5]
+# b=[1,3,6]
+# print(merge_sorted(a,b))
+
+# Sliding window
+# nums = [2,1,5,1,3,2]
+# k=3
+# # have to find max sum with range k in nums range
+# def max_subarray_sum(nums, k):
+#     if k <= 0: return "k Must be Positive Numbers"
+#     if k>len(nums): return "K is larger than nums"
+#     window_sum=sum(nums[:k])
+#     max_sum=window_sum
+#     for right in range(k,len(nums)):
+#         window_sum+=nums[right]
+#         window_sum-=nums[right-k]
+#         if max_sum<window_sum:
+#             max_sum = window_sum
+#     return max_sum
+# print(max_subarray_sum(nums,k))
 
