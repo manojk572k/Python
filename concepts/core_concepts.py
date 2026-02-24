@@ -9,6 +9,7 @@
 # a.pop(2) 0(n)
 # print(a)
 import copy
+# from multiprocessing.reduction import duplicate
 
 # 2️⃣Tuple (Immutable Array)0(1)
 # a = (1, 2, 3)
@@ -286,3 +287,118 @@ import copy
 #     return max_sum
 # print(max_subarray_sum(nums,k))
 
+
+# Contains duplicate 2:
+    # def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+    #     seen={}
+    #     for i,num in enumerate(nums):
+    #         if num in seen:
+    #             if i - seen[num] <= k:
+    #                 return True
+    #         seen[num]=i
+    #     return False         
+
+# Hashmap diffrent appraoch
+# Duplicates
+# nums = [2,1,5,1,3,2]
+# freq={}
+# for i,num in enumerate(nums):
+#     if num in freq:
+#         print("duplicate")
+#         break
+#     freq[num]=freq.get(num,0)+1
+
+# 1st duplicate
+# nums = [2,1,5,1,3,2]
+# freq={}
+# for i,num in enumerate(nums):
+#     if num in freq:
+#         print(num)
+#         break
+#     freq[num]=freq.get(num,0)+1
+
+# all duplicate
+# nums = [2,1,5,1,3,2]
+# freq={}
+# for i,num in enumerate(nums):
+#     if num in freq:
+#         print(num)
+#     freq[num]=freq.get(num,0)+1
+
+# finding maximun occurence
+# nums = [4,5,5,2,4,4,3]
+# freq={}
+# for i,num in enumerate(nums):
+#     freq[num]=freq.get(num,0)+1
+# value=max(freq.values())
+# for i,num in freq.items():
+#     if value == num:
+#         print(i)
+
+
+# 3 sum
+# nums =[1, 2, -1, 0, 3, 5]
+# target = 3
+# # sort the array
+# nums.sort()
+# n=len(nums)
+# # fix one Element
+# for i in range(len(nums-2)):
+#     left=i+1
+#     right=n-1
+# # two pointers inside
+#     while(left<right):
+#         total=nums[i]+nums[left]+nums[right]
+#         if(total==target):
+#             left+=1
+#             right+=1
+#         if(total<target):
+#             left+=1
+#         if(total>target):
+#             right+=1
+# # skip duplicates
+#         if(i>0 and nums[i]==nums[i-1]):
+#             continue
+#     while(left<right and nums[left]==nums[right]):
+#         left+=1
+#     while(left<right and nums[left]== nums[right+1]):
+#         right+=1
+# print(total)
+
+# 2 sum
+# nums = [1, 2, -1, 0, 3, 5]
+# target = 3
+
+# nums.sort()
+# n = len(nums)
+# res = []
+
+# for i in range(n - 2):
+#     # skip duplicate fixed element
+#     if i > 0 and nums[i] == nums[i - 1]:
+#         continue
+
+#     left, right = i + 1, n - 1
+
+#     while left < right:
+#         total = nums[i] + nums[left] + nums[right]
+
+#         if total == target:
+#             res.append([nums[i], nums[left], nums[right]])
+#             left += 1
+#             right -= 1
+
+#             # skip duplicates on left
+#             while left < right and nums[left] == nums[left - 1]:
+#                 left += 1
+
+#             # skip duplicates on right
+#             while left < right and nums[right] == nums[right + 1]:
+#                 right -= 1
+
+#         elif total < target:
+#             left += 1
+#         else:
+#             right -= 1
+
+# print(res)
