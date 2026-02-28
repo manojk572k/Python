@@ -377,7 +377,6 @@ import copy
 #     # skip duplicate fixed element
 #     if i > 0 and nums[i] == nums[i - 1]:
 #         continue
-
 #     left, right = i + 1, n - 1
 
 #     while left < right:
@@ -400,5 +399,5 @@ import copy
 #             left += 1
 #         else:
 #             right -= 1
-
 # print(res)
+
