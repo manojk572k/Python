@@ -386,18 +386,33 @@ import copy
 #             res.append([nums[i], nums[left], nums[right]])
 #             left += 1
 #             right -= 1
-
 #             # skip duplicates on left
 #             while left < right and nums[left] == nums[left - 1]:
 #                 left += 1
-
 #             # skip duplicates on right
 #             while left < right and nums[right] == nums[right + 1]:
-#                 right -= 1
-
+#                 right-= 1
 #         elif total < target:
 #             left += 1
 #         else:
 #             right -= 1
 # print(res)
+
+# longest subString 
+
+# def longest_substring(s):
+#     seen = set()
+#     left = 0
+#     max_len = 0
+
+#     for right in range(len(s)):
+        
+#         while s[right] in seen:
+#             seen.remove(s[left])
+#             left += 1
+        
+#         seen.add(s[right])
+#         max_len = max(max_len, right - left + 1)
+
+#     return max_len
 
