@@ -1,0 +1,216 @@
+Using enumerate()
+names = ["Alice", "Bob", "Charlie"]
+
+for index, name in enumerate(names):
+    print(index, name)
+
+Output
+
+0 Alice
+1 Bob
+2 Charlie
+Why enumerate is useful
+
+It gives index + value together.
+
+enumerate(iterable)
+
+Returns pairs:
+
+(0, value1)
+(1, value2)
+(2, value3)
+Example
+nums = [10, 20, 30]
+
+for i, val in enumerate(nums):
+    print(i, val)
+
+Output
+
+0 10
+1 20
+2 30
+
+
+
+2️⃣ zip()
+
+Used when iterating multiple lists together.
+
+Example:
+
+names = ["Alice", "Bob"]
+ages = [25, 30]
+
+for name, age in zip(names, ages):
+    print(name, age)
+
+Output
+
+Alice 25
+Bob 30
+How zip works
+zip(list1, list2)
+
+creates pairs:
+
+("Alice", 25)
+("Bob", 30)
+Example 2
+a = [1,2,3]
+b = [4,5,6]
+
+for x, y in zip(a,b):
+    print(x+y)
+
+Output
+
+5
+7
+9
+Convert zip to list
+a = [1,2]
+b = [3,4]
+
+pairs = list(zip(a,b))
+print(pairs)
+
+Output
+
+[(1,3), (2,4)]
+
+
+3️⃣ List Comprehension
+
+List comprehension is a short, clean way to create lists.
+
+It replaces many for loops.
+
+Structure of List Comprehension
+[ expression  for item in iterable ]
+
+Example
+
+[n*n for n in nums]
+
+Example: label numbers.
+
+nums = [1,2,3,4]
+
+result = ["even" if n%2==0 else "odd" for n in nums]
+
+print(result)
+
+Output
+
+['odd','even','odd','even']
+
+
+4️⃣ Lambda Functions
+
+A lambda function is a small anonymous function (a function without a name).
+
+Used when we need a short function for a short operation.
+
+Lambda Version
+add = lambda a, b: a + b
+print(add(3,4))
+
+Output
+
+7
+
+Structure:
+
+lambda arguments : expression
+
+Example
+
+lambda x: x*x
+
+Lambda function can be used for sorting
+
+mostly inside sort, max, min
+
+data = [(3,10),(1,5),(2,7)]
+
+data.sort(key=lambda x: x[1])
+
+print(data)
+
+
+5️⃣ *args and **kwargs
+
+This concept is heavily used in:
+
+frameworks (Django / Flask / FastAPI)
+
+decorators
+
+flexible functions
+
+libraries
+
+*args
+Allows a function to accept multiple positional arguments.
+Example
+
+def add(*nums):
+    print(nums)
+
+Call
+
+add(1,2,3)
+
+Output
+
+(1,2,3)
+
+It becomes a tuple.
+
+**kwargs
+Allows a function to accept keyword arguments.
+
+Example
+
+def info(**data):
+    print(data)
+
+Call
+
+info(name="Manoj", age=23)
+
+Output
+
+{'name':'Manoj','age':23}
+
+It becomes a dictionary.
+
+
+/////////////////
+Generators (yield)
+
+Now using yield.
+
+def numbers():
+    for i in range(10000000):
+        yield i
+
+Visual Difference
+
+Normal list:
+
+Memory
+[1,2,3,4,5,6,7,8,9,10, ... 10M]
+
+Generator:
+
+Memory
+1 → processed
+2 → processed
+3 → processed
+4 → processed
+
+Only one element exists at a time.
+
