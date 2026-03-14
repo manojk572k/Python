@@ -88,7 +88,7 @@
 #     print(num)
 # print(list(generate_squares(5)))
 
-def generate_cubes(n):
-    for i in range(1, n+1):
-        yield i**3
-print(list(generate_cubes(4)))
+# def generate_cubes(n):
+#     for i in range(1, n+1):
+#         yield i**3
+# print(list(generate_cubes(4)))
