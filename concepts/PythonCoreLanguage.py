@@ -92,3 +92,36 @@
 #     for i in range(1, n+1):
 #         yield i**3
 # print(list(generate_cubes(4)))
+
+
+# Counter\
+from collections import Counter
+nums = [4,4,1,2,2,2,3]
+freq=Counter(nums)
+print(freq.most_common(1))
+
+top = freq.most_common(1)[0][0]
+# first [0] first element of the list and [0] first element of the tuple
+print(top)  # 2
+
+# defaultdict
+from collections import defaultdict
+nums = [1,2,3,4,5,6]
+groups = defaultdict(list)
+
+for w in nums:
+    groups["even" if w % 2 == 0 else "odd"].append(w)
+print(groups)
+
+# defaultdict
+# from collections import defaultdict
+# nums = [1,2,3,4,5,6]
+# groups = defaultdict(list)
+#
+# for w in nums:
+#     if w%2==0:
+#         groups["even"].append(w)
+#     else:
+#         groups["odd"].append((w))
+#
+# print(groups)
