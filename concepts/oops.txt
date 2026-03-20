@@ -1,0 +1,249 @@
+1️⃣ What is a Class?
+
+A class is a blueprint to create objects.
+
+Real-world analogy:
+
+Car (class)
+↓
+BMW, Audi (objects)
+2️⃣ Basic Class Example
+class Person:
+    pass
+
+This is an empty class.
+
+Create object:
+
+p1 = Person()
+print(p1)
+3️⃣ Adding Data (Attributes)
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+What is __init__?
+
+Special function (constructor)
+
+Runs when object is created
+
+Create Object
+p1 = Person("Manoj", 23)
+
+print(p1.name)
+print(p1.age)
+
+Output:
+
+Manoj
+23
+4️⃣ Understanding self
+
+This is very important.
+
+self = current object
+
+Example:
+
+p1 = Person("Manoj", 23)
+
+Internally:
+
+self.name = "Manoj"
+self.age = 23
+5️⃣ Adding Methods
+class Person:
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        print("Hello, my name is", self.name)
+Using Method
+p1 = Person("Manoj", 23)
+p1.greet()
+
+Output:
+
+Hello, my name is Manoj
+6️⃣ Multiple Objects
+p1 = Person("Manoj", 23)
+p2 = Person("Alex", 25)
+
+p1.greet()
+p2.greet()
+
+Each object has its own data.
+
+7️⃣ Key Concepts Learned
+Class → blueprint
+Object → instance of class
+__init__ → constructor
+self → current object
+attributes → variables inside class
+methods → functions inside class
+
+🧠 Rule
+Class → defines blueprint
+Objects → created OUTSIDE the class
+
+//////////////////////////////////////////
+
+1️⃣ Instance Variables
+
+Defined inside __init__ using self.
+
+class Car:
+    def __init__(self, brand, price):
+        self.brand = brand
+        self.price = price
+Key idea:
+Each object has its own copy
+
+Example:
+
+p1 = Car("Tesla", 50000)
+p2 = Car("BMW", 60000)
+
+print(p1.brand)  # Tesla
+print(p2.brand)  # BMW
+
+✔ Different values per object
+
+2️⃣ Class Variables
+
+Defined directly inside class (outside __init__).
+
+class Car:
+    wheels = 4   # class variable
+
+    def __init__(self, brand):
+        self.brand = brand
+Key idea:
+Shared across ALL objects
+
+Example:
+
+p1 = Car("Tesla")
+p2 = Car("BMW")
+
+print(p1.wheels)  # 4
+print(p2.wheels)  # 4
+🔥 Real-World Analogy
+Car:
+- wheels = 4  → same for all cars (class variable)
+- brand       → different for each car (instance variable)
+3️⃣ Important Behavior (Very Important)
+Changing Class Variable
+Car.wheels = 6
+
+print(p1.wheels)  # 6
+print(p2.wheels)  # 6
+
+All objects are affected.
+
+Changing via Object
+p1.wheels = 8
+
+Now:
+
+print(p1.wheels)  # 8
+print(p2.wheels)  # 6
+
+Why?
+
+Because:
+
+p1 created its own instance variable (shadowing class variable)
+🔥 Internal Understanding
+
+Python lookup order:
+
+1. object (p1)
+2. class (Car)
+
+So:
+
+p1.wheels
+
+→ first checks p1
+→ if not found → checks Car
+
+4️⃣ Full Example
+class Car:
+    wheels = 4   # class variable
+
+    def __init__(self, brand):
+        self.brand = brand   # instance variable
+
+
+p1 = Car("Tesla")
+p2 = Car("BMW")
+
+print(p1.wheels, p2.wheels)  # 4 4
+
+Car.wheels = 6
+
+print(p1.wheels, p2.wheels)  # 6 6
+
+p1.wheels = 8
+
+print(p1.wheels, p2.wheels)  # 8 6
+Summary
+Type	Defined	Scope
+Instance variable	self.x	per object
+Class variable	inside class	shared
+
+//////////////////////////////////////
+🔴 Inheritance — Core Idea
+Child class gets properties + methods from Parent class
+🧠 Real-World Analogy
+Person (Parent)
+↓
+Student (Child)
+↓
+Employee (Child)
+
+All share common things like:
+
+name
+
+age
+
+Basic Example
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        print(f"Hello, I am {self.name}")
+
+Child class:
+
+class Student(Person):
+    def study(self):
+        print("Studying...")
+
+Usage:
+
+s = Student("Manoj")
+
+s.greet()   # inherited
+s.study()   # own method
+🔥 Important Concept: super()
+
+Used to call parent constructor.
+
+class Student(Person):
+    def __init__(self, name, grade):
+        super().__init__(name)
+        self.grade = grade
+
+🧠 Key Understanding
+super().__init__(brand)
+→ calls Vehicle constructor
+→ sets self.brand
+
+So no need to repeat.
