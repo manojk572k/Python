@@ -27,19 +27,76 @@
 # p1.show()
 
 # Inheritance
-class Vehicle:
-    def __init__(self,brand):
-        self.brand=brand
-    def show_brand(self):
-        print("Brand",self.brand)
-class Car(Vehicle):
-    def __init__(self,brand,price):
-        super().__init__(brand)
-        self.price=price
-    def show_details(self):
-        print("Brand",self.brand," Price",self.price)
+# class Vehicle:
+#     def __init__(self,brand):
+#         self.brand=brand
+#     def show_brand(self):
+#         print("Brand",self.brand)
+# class Car(Vehicle):
+#     def __init__(self,brand,price):
+#         super().__init__(brand)
+#         self.price=price
+#     def show_details(self):
+#         print("Brand",self.brand," Price",self.price)
+#
+# c= Car("Tesla",50000)
+#
+# c.show_brand()
+# c.show_details()
 
-c= Car("Tesla",50000)
+# Method Overriding
+# class Vehicle:
+#     def __init__(self, brand):
+#         self.brand = brand
+#
+#     def show_brand(self):
+#         print("Brand:", self.brand)
+#
+#
+# class Car(Vehicle):
+#     def __init__(self, brand, price):
+#         super().__init__(brand)
+#         self.price = price
+#
+#     # 🔴 Overriding method
+#     def show_brand(self):
+#         print("Car Brand:", self.brand)
+#
+#     def show_details(self):
+#         print("Brand:", self.brand, "Price:", self.price)
+#
+#
+# c = Car("Tesla", 50000)
+#
+# c.show_brand()
+# c.show_details()
 
-c.show_brand()
-c.show_details()
+
+# ///////  encaps
+
+# class A:
+#     def __init__(self):
+#         self.__x = 10
+#
+# a = A()
+# print(a._A__x)
+
+# class Car:
+#     def __init__(self, brand):
+#         self.brand = brand
+#
+# c = Car("Tesla")
+# print(c)
+
+
+# /////////////// data class
+
+# from dataclasses import dataclass
+#
+# @dataclass
+# class Car:
+#     brand: str
+#     price: int
+#
+# c = Car("Tesla", 50000)
+# print(c)

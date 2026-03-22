@@ -1,0 +1,10 @@
+Patterns:
+Stack (Valid Parentheses)
+Queue / deque
+Binary Search
+Recursion
+Backtracking
+Heap / Priority Queue
+Trees
+Graphs
+Dynamic Programming

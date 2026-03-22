@@ -1,0 +1,83 @@
+1) IMPORTS (CORE)
+Basic import
+import math
+print(math.sqrt(16))
+Specific import
+from math import sqrt
+print(sqrt(16))
+Alias
+import math as m
+print(m.sqrt(16))
+🧠 Key Idea
+
+👉 import module → use module.function()
+👉 from module import x → use directly x()
+
+🔥 2) Creating Modules
+
+👉 A module = just a .py file
+
+📁 math_utils.py
+def add(a, b):
+    return a + b
+📁 main.py
+import math_utils
+
+print(math_utils.add(2, 3))
+🔥 3) Packages (Folder structure)
+
+👉 A package = folder with Python files
+
+Structure:
+project/
+│
+├── main.py
+└── utils/
+    ├── __init__.py
+    └── math_utils.py
+Import from package
+from utils.math_utils import add
+print(add(5, 3))
+⚠️ __init__.py
+
+👉 Marks folder as package
+👉 Can be empty
+
+🔥 4) __name__ == "__main__" (FINAL RECAP)
+
+👉 Controls execution
+
+def test():
+    print("Running")
+
+if __name__ == "__main__":
+    test()
+
+✔ Runs only when file is main
+❌ Not when imported
+
+🔥 5) Virtual Environments (BASIC IDEA)
+
+👉 Isolated Python environment per project
+
+Why?
+
+Avoid dependency conflicts
+
+Different project → different versions
+
+Commands (must know)
+python -m venv venv
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows
+🧠 Real Project Flow
+project/
+│
+├── venv/
+├── main.py
+├── requirements.txt
+└── utils/
+🎯 STAGE 4 Interview Answer
+
+Modules help organize code into reusable files, packages group related modules,
+and virtual environments isolate dependencies for each project.

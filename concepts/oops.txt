@@ -247,3 +247,163 @@ super().__init__(brand)
 → sets self.brand
 
 So no need to repeat.
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+🔴 Method Overriding
+
+Child class modifies behavior of parent method
+
+Example:
+
+class Animal:
+    def speak(self):
+        print("Animal sound")
+
+class Dog(Animal):
+    def speak(self):
+        print("Bark")
+
+//////////////////////////////
+
+Polymorphism
+
+Meaning:
+“Poly” = many
+“morphism” = forms
+
+So polymorphism means:
+
+the same method name can behave differently for different objects.
+
+Simple idea
+
+Different classes can have the same method name, but each class gives its own behavior.
+
+Example:
+
+class Dog:
+    def sound(self):
+        print("Bark")
+
+class Cat:
+    def sound(self):
+        print("Meow")
+
+d = Dog()
+c = Cat()
+
+d.sound()
+c.sound()
+Output
+Bark
+Meow
+
+Here:
+
+both classes have sound()
+
+same method name
+
+different behavior
+
+That is polymorphism.
+
+
+///////////////////////////
+
+🧠 Definition (1 line)
+
+👉 Hiding internal data and controlling access
+
+🔥 Basic Example
+class Bank:
+    def __init__(self, balance):
+        self.balance = balance
+
+b = Bank(1000)
+print(b.balance)
+
+❌ Problem: anyone can change balance
+
+b.balance = -5000   # wrong but allowed
+🔒 Encapsulation (Private Variable)
+class Bank:
+    def __init__(self, balance):
+        self.__balance = balance   # private
+
+b = Bank(1000)
+print(b.__balance)  # ❌ error
+
+✔ Now data is protected
+
+⚡ Access using methods (Getter / Setter)
+class Bank:
+    def __init__(self, balance):
+        self.__balance = balance
+
+    def get_balance(self):
+        return self.__balance
+
+    def set_balance(self, amount):
+        if amount > 0:
+            self.__balance = amount
+
+b = Bank(1000)
+
+print(b.get_balance())   # 1000
+b.set_balance(2000)
+print(b.get_balance())   # 2000
+🔥 Why encapsulation?
+
+Prevent wrong data
+
+Control updates
+
+Secure code
+
+⚠️ IMPORTANT (Python Trick)
+
+Even private is not fully hidden:
+
+print(b._Bank__balance)
+
+👉 Python uses name mangling
+
+/////////////////////////////////////
+
+🧠 Problem without dataclass
+class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+s = Student("Manoj", 23)
+print(s)
+
+❌ Same ugly output
+
+⚡ Dataclass Solution
+from dataclasses import dataclass
+
+@dataclass
+class Student:
+    name: str
+    age: int
+
+s = Student("Manoj", 23)
+print(s)
+✅ Output
+Student(name='Manoj', age=23)
+🔥 What dataclass gives automatically
+
+__init__
+
+__repr__
+
+__eq__ (comparison)
+
+👉 Saves time + clean code
+
+Dataclasses in Python are used to reduce boilerplate code in classes. By using @dataclass,
+Python automatically generates methods like init, repr, and eq.
+
